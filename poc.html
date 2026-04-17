@@ -1,0 +1,21 @@
+<html>
+      <head>
+              <title>Title</title>
+      </head>
+      <body>
+              <p>Hello World</p>
+              <iframe id="myIframe" src="https://ttocafrontendgateway.api.intuit.com/tealium/sandbox.html?parentDomain=https://example.com"></iframe>
+      </body>
+
+      <script>
+              const getIframeElement = document.getElementById("myIframe");
+              let data = {
+                      type: "init",
+                      payload: { tealiumUrl: "https://example.com/alert.js" }
+              };
+
+             getIframeElement.onload = () => {
+             getIframeElement.contentWindow.postMessage(data, "*");
+             };
+      </script>
+</html>
